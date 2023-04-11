@@ -5,10 +5,13 @@ const sessionId = urlParams.get('sessionId'); // Unique identifier for the payme
 const redirectResult = urlParams.get('redirectResult');
 const applePayConfiguration = {
     amount: {
-        value: 10000,
+        value: 1000,
         currency: "EUR"
     },
-    countryCode: "DE"
+    countryCode: "DE",
+    onClick(resolve,reject){
+    resolve();
+    }
 };
 
 // Typical checkout experience
