@@ -43,7 +43,7 @@ task customFatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'checkout.Application'
     }
-    baseName = 'adyen-java-online-payments-fat'
+    archiveBaseName = 'adyen-java-online-payments-fat'
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
