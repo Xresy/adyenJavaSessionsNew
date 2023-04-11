@@ -102,9 +102,13 @@ public class Application {
         Properties prop = new Properties();
 
         // Reading environment variables
-        prop.setProperty("merchantAccount", System.getenv("ADYEN_MERCHANT_ACCOUNT"));
-        prop.setProperty("apiKey", System.getenv("ADYEN_API_KEY"));
-        prop.setProperty("clientKey",System.getenv("ADYEN_CLIENT_KEY"));
+//        prop.setProperty("merchantAccount", System.getenv("ADYEN_MERCHANT_ACCOUNT"));
+//        prop.setProperty("apiKey", System.getenv("ADYEN_API_KEY"));
+//        prop.setProperty("clientKey",System.getenv("ADYEN_CLIENT_KEY"));
+
+        prop.setProperty("merchantAccount", "AaronZhu");
+        prop.setProperty("apiKey", "AQEyhmfxKo7PbxVCw0m/n3Q5qf3VaY9UCJ1+XWZe9W27jmlZinbf1STXpfKfm86QTTaJKzEQwV1bDb7kfNy1WIxIIkxgBw==-gSgbrAEAnRDj2TtWMQzkdFebgfqPCEAYogicxk6cyG8=-@dp3VyAq_$cqU2^7");
+        prop.setProperty("clientKey","test_GBI6RMQCHZCJHA5XQM2KSRQLYQFEMRZC");
 
         // Overriding with local properties
 
