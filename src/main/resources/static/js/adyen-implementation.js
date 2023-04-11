@@ -3,6 +3,13 @@ const clientKey = document.getElementById("client-key").innerHTML;
 const urlParams = new URLSearchParams(window.location.search);
 const sessionId = urlParams.get('sessionId'); // Unique identifier for the payment session
 const redirectResult = urlParams.get('redirectResult');
+const applePayConfiguration = {
+    amount: {
+        value: 10000,
+        currency: "EUR"
+    },
+    countryCode: "DE"
+};
 
 // Typical checkout experience
 async function startCheckout() {
@@ -59,7 +66,8 @@ async function createAdyenCheckout(session){
                  },
                  environment: "test", // Change this to "live" when you're ready to accept live PayPal payments
                  countryCode: "US", // Only needed for test. This will be automatically retrieved when you are in production.
-               }
+               },
+               applepay: applePayConfiguration
              },
              onPaymentCompleted: (result, component) => {
                  console.info("onPaymentCompleted");
