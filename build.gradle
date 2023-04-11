@@ -6,7 +6,7 @@ apply plugin: 'java'
 
 version '0.1'
 
-sourceCompatibility = 1.11
+sourceCompatibility = 1.8
 
 description ="""
 Demo Adyen checkout integration with a Java Spark based backend
