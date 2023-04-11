@@ -14,7 +14,7 @@ Project name: ${project.name}
 """
 
 application {
-    mainClassName = 'checkout.Application'
+    mainClass.set("checkout.Application")
 }
 
 repositories {
