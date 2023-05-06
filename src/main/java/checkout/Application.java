@@ -39,6 +39,11 @@ public class Application {
             return RenderUtil.render(context, "templates/home.html");
         });
 
+        get("/cashapp", (req, res) -> {
+            Map<String, Object> context = new HashMap<>();
+            return RenderUtil.render(context, "templates/cashapp.html");
+        });
+
         get("/cart/:integration", (req, res) -> {
             String integrationType = req.params(":integration");
 
