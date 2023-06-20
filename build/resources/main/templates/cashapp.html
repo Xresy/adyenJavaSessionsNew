@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <script src="https://sandbox.kit.cash.app/v1/pay.js"></script>
+</head>
+
+<body>
+<div id="cash-app-pay"></div>
+<script type="module">
+    try {
+      const pay = await window.CashApp.pay({
+        clientId: "CAS-CI_ADYEN",
+      });
+      pay.addEventListener(
+        "CUSTOMER_REQUEST_APPROVED",
+        ({
+          grants,
+          referenceId,
+          customerProfile
+        }) => {
+          // send grant to backend to authorize payment
+          console.log(
+            "[Pay Kit] CUSTOMER_REQUEST_APPROVED",
+            grants,
+            referenceId,
+            customerProfile
+          );
+        }
+      );
+      pay.addEventListener(
+        "CUSTOMER_REQUEST_DECLINED",
+        () => {
+          console.log(
+            "[Pay Kit] CUSTOMER_REQUEST_DECLINED"
+          );
+        }
+      );
+      await pay.render("#cash-app-pay");
+      const amount = {
+        currency: 'USD',
+        value: 1234, // $12.34
+      };
+      const scopeId = 'BRAND_chxxq83j4gnjhj6b4is8bo287';
+      await pay.customerRequest({
+        referenceId: 'your_reference_id', // perhaps a cart or checkout identifier
+        redirectURL: window.location.href, // where mobile customers should be redirected to
+        actions: {
+           payment: {
+             amount,
+             scopeId: scopeId
+           },
+          onFile: {
+            scopeId: scopeId
+          },
+        },
+      });
+    } catch (error) {
+      console.error("[Pay Kit]", error);
+    }
+  </script>
+</body>
+
+</html>

@@ -25,7 +25,7 @@ public class CheckoutService {
     public CreateCheckoutSessionResponse checkoutsessions(Request req) throws IOException, ApiException {
         String orderRef = UUID.randomUUID().toString();
         Amount amount = new Amount()
-                .currency("EUR")
+                .currency("USD")
                 .value(1000L);
         CreateCheckoutSessionRequest checkoutSession = new CreateCheckoutSessionRequest();
         checkoutSession.merchantAccount(merchantAccount);
